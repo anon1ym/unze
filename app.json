@@ -7,13 +7,12 @@
         "Telegram Bot",
         "unzipper bot"
     ],
-    "repository": "https://github.com/anon1ym/unzip/tree/arch",
-    "success_url": "https://t.me/+SdRIFGh_KRA0YmY9",
+    "repository": "https://github.com/Itz-fork/Unzipper-Bot",
+    "success_url": "https://t.me/NexaBotsUpdates",
     "env": {
         "APP_ID": {
             "description": "Your APP_ID from my.telegram.org",
             "required": true
-            "value": "16217296"
         },
         "API_HASH": {
             "description": "Your API_HASH from my.telegram.org",
