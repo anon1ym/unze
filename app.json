@@ -29,10 +29,6 @@
         "MONGODB_URL": {
             "description": "Your MongoDB url, Get it from https://www.mongodb.com/",
             "required": true
-        },
-        "LOGS_CHANNEL": {
-            "description": "Make a private channel and forward a message from that channel to @ChannelidHEXbot and Get this",
-            "required": true
         }
     },
     "addons": [],
