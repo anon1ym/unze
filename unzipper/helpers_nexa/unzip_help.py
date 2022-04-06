@@ -48,7 +48,7 @@ def humanbytes(size):
     while size > power:
         size /= power
         n += 1
-    return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
+    return str(round(size, 3)) + " " + Dic_powerN[n] + 'B'
 
 
 def TimeFormatter(milliseconds: int) -> str:
@@ -63,21 +63,3 @@ def TimeFormatter(milliseconds: int) -> str:
         ((str(milliseconds) + "ms, ") if milliseconds else "")
     return tmp[:-2]
 
-# Checking log channel
-def check_logs():
-    try:
-        if Config.LOGS_CHANNEL:
-            c_info = client.get_chat(chat_id=Config.LOGS_CHANNEL)
-            if c_info.type != "channel":
-                print("TF? Chat is not a channel")
-                return
-            elif c_info.username is not None:
-                print("TF? Chat is not private")
-                return
-            else:
-                client.send_message(chat_id=Config.LOGS_CHANNEL, text="`Unzipper-Bot has Successfully Started!` \n\n**Powered by @NexaBotsUpdates**")
-        else:
-            print("No Log Channel ID is Given! Imma leaving Now!")
-            exit()
-    except:
-        print("Error Happend while checking Log Channel! Make sure you're not dumb enough to provide a wrong Log Channel ID!")
