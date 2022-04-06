@@ -63,11 +63,11 @@ class Buttons:
 
 class Messages:
     START_TEXT = """
-Hi **{}**, I'm **Nexa Unzipper Bot** 😇!
+Hi **{}**, I'm **UNZIPPER BOT ** 😇!
 
 `I can extract archives like zip, rar, tar etc.`
 
-**Made with ❤️ by @NexaBotsUpdates**
+**Made with ❤️ **
     """
 
     HELP_TXT = """
@@ -88,7 +88,7 @@ Hi **{}**, I'm **Nexa Unzipper Bot** 😇!
     """
 
     ABOUT_TXT = """
-**About Nexa Unzipper Bot,**
+**About Unzipper Bot,**
 
 ✘ **Language:** [Python](https://www.python.org/)
 ✘ **Framework:** [Pyrogram](https://docs.pyrogram.org/)
@@ -96,17 +96,9 @@ Hi **{}**, I'm **Nexa Unzipper Bot** 😇!
 ✘ **Developer:** [Itz-fork](https://github.com/Itz-fork)
 
 
-**Made with ❤️ by @NexaBotsUpdates**
+**Made with ❤️**
     """
-
-    LOG_TXT = """
-**Extract Log 📝!**
-
-**User ID:** `{}`
-**File Name:** `{}`
-**File Size:** `{}`
-    """
-
+    
     AFTER_OK_DL_TXT = """
 **Successfully Downloaded**
 
@@ -129,17 +121,12 @@ Hi **{}**, I'm **Nexa Unzipper Bot** 😇!
  - `Please make sure archive isn't corrupted`
  - `Please make sure that you selected the right mode!`
  - `May be Your archive format isn't supported 😔`
-
-**Please report this at @Nexa_bots if you think this is a serious error**
     """
 
     ERROR_TXT = """
 **Error Happend 😕!**
 
 **ERROR:** {}
-
-
-**Please report this at @Nexa_bots if you think this is a serious error**
     """
 
     CANCELLED_TXT = """
