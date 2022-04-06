@@ -73,10 +73,6 @@ async def unzipper_cb(unzip_bot: Client, query: CallbackQuery):
                     if unzip_resp.status == 200:
                         # Makes download dir
                         os.makedirs(download_path)
-                        # Send logs
-                        await unzip_bot.send_message(chat_id=Config.LOGS_CHANNEL, text=Messages.LOG_TXT.format(user_id, url, u_file_size))
-                        s_time = time()
-                        archive = f"{download_path}/archive_from_{user_id}{os.path.splitext(url)[1]}"
                         await answer_query(query, f"**Trying to download!** \n\n**Url:** `{url}` \n\n`This may take a while, Go and grab a coffee ☕️!`", unzip_client=unzip_bot)
                         await download(url, archive)
                         e_time = time()
@@ -85,13 +81,9 @@ async def unzipper_cb(unzip_bot: Client, query: CallbackQuery):
             
             elif splitted_data[1] == "tg_file":
                 if r_message.document is None:
-                    return await query.message.edit("`Give me an Archive to extract lmao!`")
+                    return await query.message.edit("`Give me an Archive to extract!`")
                 # Makes download dir
                 os.makedirs(download_path)
-                # Send Logs
-                log_msg = await r_message.forward(chat_id=Config.LOGS_CHANNEL)
-                await log_msg.reply(Messages.LOG_TXT.format(user_id, r_message.document.file_name, humanbytes(r_message.document.file_size)))
-                s_time = time()
                 archive = await r_message.download(
                     file_name=f"{download_path}/archive_from_{user_id}{os.path.splitext(r_message.document.file_name)[1]}",
                     progress=progress_for_pyrogram, progress_args=("**Trying to Download!** \n", query.message, s_time)
@@ -191,7 +183,7 @@ async def unzipper_cb(unzip_bot: Client, query: CallbackQuery):
                             query=query,
                             full_path=f"{Config.DOWNLOAD_LOCATION}/{spl_data[1]}"
                         )
-        await query.message.edit("**Successfully Uploaded!** \n\n **Join @NexaBotsUpdates ❤️**")
+        await query.message.edit("**Successfully Uploaded!**")
         try:
             shutil.rmtree(f"{Config.DOWNLOAD_LOCATION}/{spl_data[1]}")
         except Exception as e:
@@ -202,7 +194,7 @@ async def unzipper_cb(unzip_bot: Client, query: CallbackQuery):
             shutil.rmtree(f"{Config.DOWNLOAD_LOCATION}/{query.from_user.id}")
             await query.message.edit(Messages.CANCELLED_TXT.format("Process Cancelled"))
         except:
-            return await query.answer("There is nothing to remove lmao!", show_alert=True)
+            return await query.answer("There is nothing to remove! ", show_alert=True)
     
     elif query.data == "nobully":
         await query.message.edit("**Ok Ok! I won't delete those files 😂!**")
